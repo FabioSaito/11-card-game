@@ -6,6 +6,7 @@ function App() {
 
   return (
     <div className="container">
+      <p>DECK</p>
       <ShowCards deck = {myDeck} />
     </div>
   );
