@@ -1,8 +1,9 @@
-import {Deck} from "../classes/deck.js";
+import {Deck} from "../classes/deck.js"
 
 function createDeck(){
-  const deck = new Deck();
-  const randomCards = deck.getRandomDeck(21)
+  const MAGIC_DECK_SIZE = 21
+  const deck = new Deck()
+  const randomCards = deck.getRandomDeck(MAGIC_DECK_SIZE)
   return [...randomCards]
 }
 
