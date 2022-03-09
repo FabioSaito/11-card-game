@@ -1,17 +1,22 @@
-import {Deck} from "./deck";
+import {Deck} from "./deck"
 
-describe ("deck class", ()=>{
+describe ("Deck", ()=>{
   const deck = new Deck()
-  it("should have a array with 52 cards", ()=>{
+  it("#generateDeck", ()=>{
     const DECK_SIZE = 52
-    expect(deck.current_deck.length).toBe(DECK_SIZE)
+    expect(deck.current_deck).toHaveLength(DECK_SIZE)
   })
 
-  it("should return 21 cards and let 31 cards remaining in deck", ()=>{
-    const MAGIC_DECK_SIZE = 21
-    const REMAINING_CARDS = 31
-    const magicDeck = deck.getRandomDeck(MAGIC_DECK_SIZE)
-    expect(magicDeck.length).toBe(MAGIC_DECK_SIZE)
-    expect(deck.current_deck.length).toBe(REMAINING_CARDS)
+  it("#shuffleCurrentDeck", ()=>{
+    deck.shuffleCurrentDeck()
+    const shuffledDeck = [...deck.current_deck]
+    expect(shuffledDeck).toEqual(deck.current_deck)
+    expect(shuffledDeck).not.toBe(deck.current_deck)
   })
-});
+
+  it("#getRandomDeck", ()=>{
+    const magicDeck = deck.getRandomDeck(21)
+    expect(magicDeck).toHaveLength(21)
+    expect(deck.current_deck).toEqual(expect.not.arrayContaining(magicDeck))
+  })
+})
