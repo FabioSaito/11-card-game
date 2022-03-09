@@ -1,5 +1,5 @@
-import { ShowCards } from "./components/ShowCards.js";
-import { createDeck } from "./utils/createDeck.js";
+import { ShowCards } from "./components/ShowCards.js"
+import { createDeck } from "./utils/createDeck.js"
 import "./App.css"
 
 function App() {
