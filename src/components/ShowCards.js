@@ -4,4 +4,4 @@ function ShowCards(props) {
   )
 }
 
-export {ShowCards};
+export {ShowCards}

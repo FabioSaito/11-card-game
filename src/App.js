@@ -1,5 +1,5 @@
-import { ShowCards } from "./components/ShowCards.js";
-import { createDeck } from "./utils/createDeck.js";
+import { ShowCards } from "./components/ShowCards.js"
+import { createDeck } from "./utils/createDeck.js"
 
 function App() {
   const myDeck = createDeck()
@@ -9,7 +9,7 @@ function App() {
       <p>DECK</p>
       <ShowCards deck = {myDeck} />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

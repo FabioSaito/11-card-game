@@ -1,5 +1,5 @@
 class Deck {
-  CARD_SUITS = ["hearts", "spades", "diams", "clubs"];
+  CARD_SUITS = ["hearts", "spades", "diams", "clubs"]
   CARD_NUMBERS = [
     "A",
     "2",
@@ -14,28 +14,28 @@ class Deck {
     "J",
     "Q",
     "K",
-  ];
+  ]
 
-  current_deck = [];
+  current_deck = []
 
   constructor() {
-    this.current_deck = this.generateDeck();
+    this.current_deck = this.generateDeck()
     this.shuffleCurrentDeck()
   }
 
   generateDeck() {
     return this.CARD_SUITS.flatMap((suit) =>
       this.CARD_NUMBERS.map((n) => ({ suit, n }))
-    );
+    )
   }
 
   shuffleCurrentDeck() {
-    this.current_deck.sort(() => Math.random() - 0.5);
+    this.current_deck.sort(() => Math.random() - 0.5)
   }
 
   getRandomDeck(deckSize) {
-    return Array(deckSize).fill().map( () => this.current_deck.splice(Math.floor(Math.random()*this.current_deck.length), 1)[0] )
+    return Array(deckSize).fill().map( () => this.current_deck.splice( Math.floor( Math.random()*this.current_deck.length ), 1 )[0] )
   }
 }
 
-export {Deck};
+export {Deck}
