@@ -3,22 +3,25 @@ import { createDeck } from "./utils/createDeck.js"
 import "./App.css"
 
 function App() {
-  const myDeck = createDeck()
+  const magicDeck = createDeck()
+  const magicDeckSlice1 = magicDeck.filter((card, index) => index%3 === 0);
+  const magicDeckSlice2 = magicDeck.filter((card, index) => index%3 === 1);
+  const magicDeckSlice3 = magicDeck.filter((card, index) => index%3 === 2);
 
   return (
     <div className="container">
       <p className="page__title">11Th Card Trick </p>
-      
+
       <div className="deck__container">
-        <ShowCards deck = {myDeck.slice(0,7)} />
+        <ShowCards deck = {magicDeckSlice1} />
       </div>
 
       <div className="deck__container">  
-        <ShowCards deck = {myDeck.slice(7,14)} />
+        <ShowCards deck = {magicDeckSlice2} />
       </div> 
     
       <div className="deck__container">  
-        <ShowCards deck = {myDeck.slice(14,21)} />
+        <ShowCards deck = {magicDeckSlice3} />
       </div>
     </div>
   )
