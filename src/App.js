@@ -7,32 +7,25 @@ function App() {
   const NUMBER_OF_ROWS = 3
   const MIDDLE_OF_ARRAY_INDEX = 7
 
-  const initialMagicDeck = createDeck()
+  const magicDeck = createDeck()
 
-  const [magicDeck, setMagicDeck] = useState(initialMagicDeck)
-  // estou usando o array errado, eu deveria usar o proprio magicDeckSlices
+  function convertToSlicedArray(arr, slices){
+    return Array(slices).fill().map( (_,index) => cardFilterByMod(arr, index) )
+  }
+  const [magicDeckSlices, setMagicDeckSlices] = useState(convertToSlicedArray(magicDeck, NUMBER_OF_ROWS))
   
   function cardFilterByMod(sourceDeck, mod) {
     return sourceDeck.filter( (_, index) => index % 3 === mod )
   }
 
-  const magicDeckSlices = Array(NUMBER_OF_ROWS).fill().map( (_,index) => cardFilterByMod(magicDeck, index) )
-  
-
   function handleMagicTrick(originalDeck, choice) {
-    const newDeck = [
-      ...cardFilterByMod(originalDeck, 0),
-      ...cardFilterByMod(originalDeck, 1),
-      ...cardFilterByMod(originalDeck, 2)]
-      .filter((el) => !cardFilterByMod(originalDeck, choice).includes(el))
-
-    newDeck.splice(MIDDLE_OF_ARRAY_INDEX, 0, ...cardFilterByMod(originalDeck, choice))
-
-    return newDeck
+    const newDeck = [...originalDeck].flat().filter((el) => !originalDeck[choice].includes(el))
+    newDeck.splice(MIDDLE_OF_ARRAY_INDEX, 0, ...originalDeck[choice])
+    return convertToSlicedArray(newDeck, originalDeck.length)
   }
 
   const handleMagicDeck = (choice) => {
-    setMagicDeck((prevMagicDeck) => handleMagicTrick(prevMagicDeck, choice));
+    setMagicDeckSlices((prevMagicDeck) => handleMagicTrick(prevMagicDeck, choice));
 };
 
   return (
