@@ -1,6 +1,8 @@
+import "./ShowCards.css"
+
 function ShowCards(props) {
   return props.deck.map((card, index) =>
-    <div key={index}> {card.suit} {card.n} </div>
+    <div className = {`deck__card deck__card--${card.suit}`} key={index} dangerouslySetInnerHTML={{ __html: `${card.n} &${card.suit};`}}></div>
   )
 }
 

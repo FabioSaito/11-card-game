@@ -1,0 +1,17 @@
+.deck__card {
+  padding: 10px;
+  border: 1px solid black;
+  margin: 10px;
+  height: 115px;
+  width: 65px;
+  border-radius: 10px;
+  font-size: 20px;
+  word-wrap: break-word;
+  display: inline-block;
+}
+
+.deck__card--hearts,
+.deck__card--diams {
+  color: red;
+  border-color: red;
+}
