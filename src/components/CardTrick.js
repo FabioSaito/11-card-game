@@ -18,7 +18,7 @@ function CardTrick() {
   }
 
   return magicDeckSlices.map((slice,index) => 
-    <div className="deck__container" key = {index} onClick={()=>{handleMagicDeck(index)}}>
+    <div className="deck__container" key = {index} onClick={() => {handleMagicDeck(index)}}>
       <ShowCards deck = {slice} />
     </div>
   )
