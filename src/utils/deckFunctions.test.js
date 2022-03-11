@@ -1,6 +1,6 @@
- import {convertToSlicedArray, cardFilterByMod, handleMagicTrick} from "./trickFunctions.js"
+ import {convertToSlicedArray, cardFilterByMod, handleMagicTrick} from "./deckFunctions.js"
 
-describe ("trickFunctions", ()=>{
+describe ("deckFunctions", ()=>{
   const wholeArray = [1, 2, 3, 4, 5, 6, 7, 8, 9]
   const slicedArray = [[ 1, 4, 7 ], [ 2, 5, 8 ], [ 3, 6, 9 ]]
 

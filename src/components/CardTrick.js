@@ -1,12 +1,13 @@
 import { ShowCards} from  "./ShowCards.js"
 import { createDeck } from "../utils/createDeck.js"
 import { useState } from "react"
-import { convertToSlicedArray, handleMagicTrick } from "../utils/trickFunctions.js"
+import { convertToSlicedArray, handleMagicTrick } from "../utils/deckFunctions.js"
 import "./CardTrick.css"
 
+const NUMBER_OF_ROWS = 3
+const MIDDLE_OF_ARRAY_INDEX = 7
+
 function CardTrick() {
-  const NUMBER_OF_ROWS = 3
-  const MIDDLE_OF_ARRAY_INDEX = 7
 
   const magicDeck = createDeck()
 
